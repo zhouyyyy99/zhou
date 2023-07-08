@@ -1,11 +1,3 @@
-"""
-Written by George Zerveas
-
-If you use any part of the code in this repository, please consider citing the following paper:
-George Zerveas et al. A Transformer-based Framework for Multivariate Time Series Representation Learning, in
-Proceedings of the 27th ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '21), August 14--18, 2021
-
-"""
 
 import logging
 
