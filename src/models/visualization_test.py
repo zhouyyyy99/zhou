@@ -112,32 +112,9 @@ if __name__ == '__main__':
     path_start = r'/home/studio-lab-user/'
     path_end = r'/checkpoints/model_best.pth'
     if args.model == 'all':
-        model_paths = [
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold9_2023-04-27_03-05-38_X2i' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold8_2023-04-27_02-58-22_rYS' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold7_2023-04-27_02-51-10_Ywf' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold6_2023-04-27_02-43-57_xoN' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold5_2023-04-27_02-36-40_e3t' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold4_2023-04-27_02-29-27_991' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold3_2023-04-27_02-22-13_ni9' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold2_2023-04-27_02-14-58_CQw' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold1_2023-04-27_02-07-41_4HY' + path_end,
-            # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_10fold/MDD_allsub_fc_train_fixed_pos_10fold_fold0_2023-04-27_02-00-25_uFB' + path_end,
-            path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_allsub_fc_train_fixed_pos_5fold_2023-02-25_14-08-21_Rn4' + path_end
-        ]  # length: 11
+        model_paths = []  # length: 10, all the trained models path
     if args.model == 'recurrent':
-        model_paths = [
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold9_2023-04-27_03-59-43_nex' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold8_2023-04-27_03-56-08_LNx' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold7_2023-04-27_03-52-39_rDH' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold6_2023-04-27_03-49-07_S4c' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold5_2023-04-27_03-45-34_dWX' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold4_2023-04-27_03-42-03_TXc' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold3_2023-04-27_03-38-34_FOG' + path_end,
-        # path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold2_2023-04-27_03-35-01_wiv' + path_end,
-        path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold1_2023-04-27_03-31-31_kfA' + path_end,
-        path_start + r'sagemaker-studiolab-notebooks/transformer_code/experiments/MDD_selectedsub615_fc_fixed_10fold/MDD_selectedsub615_fc_fixed_10fold_fold0_2023-04-27_03-28-00_jMc' + path_end
-        ]  # length: 10
+        model_paths = []  # length: 10, all the trained models path
 
     for model_path in model_paths:
         # '''
