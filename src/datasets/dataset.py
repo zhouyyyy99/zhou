@@ -47,43 +47,6 @@ class ImputationDataset(Dataset):
         return len(self.IDs)
 
 
-class TransductionDataset(Dataset):
-
-    def __init__(self, data, indices, mask_feats, start_hint=0.0, end_hint=0.0):
-        super(TransductionDataset, self).__init__()
-
-        self.data = data  # this is a subclass of the BaseData class in data.py
-        self.IDs = indices  # list of data IDs, but also mapping between integer index and ID
-        self.feature_df = self.data.feature_df.loc[self.IDs]
-
-        self.mask_feats = mask_feats  # list/array of indices corresponding to features to be masked
-        self.start_hint = start_hint  # proportion at beginning of time series which will not be masked
-        self.end_hint = end_hint  # end_hint: proportion at the end of time series which will not be masked
-
-    def __getitem__(self, ind):
-        """
-        For a given integer index, returns the corresponding (seq_length, feat_dim) array and a noise mask of same shape
-        Args:
-            ind: integer index of sample in dataset
-        Returns:
-            X: (seq_length, feat_dim) tensor of the multivariate time series corresponding to a sample
-            mask: (seq_length, feat_dim) boolean tensor: 0s mask and predict, 1s: unaffected input
-            ID: ID of sample
-        """
-
-        X = self.feature_df.loc[self.IDs[ind]].values  # (seq_length, feat_dim) array
-        mask = transduct_mask(X, self.mask_feats, self.start_hint,
-                              self.end_hint)  # (seq_length, feat_dim) boolean array
-
-        return torch.from_numpy(X), torch.from_numpy(mask), self.IDs[ind]
-
-    def update(self):
-        self.start_hint = max(0, self.start_hint - 0.1)
-        self.end_hint = max(0, self.end_hint - 0.1)
-
-    def __len__(self):
-        return len(self.IDs)
-
 
 def collate_superv(data, max_len=None):
     """Build mini-batch tensors from a list of (X, mask) tuples. Mask input. Create

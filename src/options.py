@@ -77,7 +77,7 @@ class Options(object):
                                       "otherwise as an integer absolute number of samples")
         self.parser.add_argument('--test_only', choices={'testset', 'fold_transduction'},
                                  help='If set, no training will take place; instead, trained model will be loaded and evaluated on test set')
-        self.parser.add_argument('--data_class', type=str, default='weld',
+        self.parser.add_argument('--data_class', type=str, default='mdd_data',
                                  help="Which type of data should be processed.")
         self.parser.add_argument('--labels', type=str,
                                  help="In case a dataset contains several labels (multi-task), "
@@ -126,12 +126,10 @@ class Options(object):
         self.parser.add_argument('--subsample_factor', type=int,
                                  help='Sub-sampling factor used for long sequences: keep every kth sample')
         # Training process
-        self.parser.add_argument('--task', choices={"imputation", "transduction", "classification", "regression"},
+        self.parser.add_argument('--task', choices={"imputation", "classification", "regression"},
                                  default="imputation",
-                                 help=("Training objective/task: imputation of masked values,\n"
-                                       "                          transduction of features to other features,\n"
-                                       "                          classification of entire time series,\n"
-                                       "                          regression of scalar(s) for entire time series"))
+                                 help=("Training objective/task: imputation of masked values for pretraining,\n"
+                                       "                          classification of classification task,\n"))
         self.parser.add_argument('--masking_ratio', type=float, default=0.15,
                                  help='Imputation: mask this proportion of each variable')
         self.parser.add_argument('--mean_mask_length', type=float, default=3,
