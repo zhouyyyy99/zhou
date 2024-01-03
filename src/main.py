@@ -320,21 +320,6 @@ def main(config):
             utils.plot_loss(val_loss_list, os.path.join(config['output_dir'], 'val_loss.jpg'),
                             label_name='val_loss')
 
-            # 每次 val 都将 top 列表的数据对照，然后替换，只保存 top 5 的数据
-            # if len(top_5_metrics) < 5:
-            #     print('----------- top_5_metrics < 5 ------------' )
-            #     print('add epoch:{} metrics'.format(aggr_metrics_val['epoch']))
-            #     top_5_metrics.append(aggr_metrics_val)
-            # else:
-            #     print('------------ top 5 metrics > 5 ---------------')
-            #     top_5_metrics.sort(key=lambda s: s[config['key_metric']])
-            #     if aggr_metrics_val[config['key_metric']] > top_5_metrics[0][config['key_metric']]:
-            #         top_5_metrics[0] = aggr_metrics_val
-            #         print('exchange the metric[0] with epoch{}'.format(aggr_metrics_val['epoch']))
-            #
-            # print(top_5_metrics)
-
-
 
 
         utils.save_model(os.path.join(config['save_dir'], 'model_{}.pth'.format(mark)), epoch, model, optimizer)
