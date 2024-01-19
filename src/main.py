@@ -260,8 +260,6 @@ def main(config):
     val_loss_list = []  # store val loss
     val_acc_list = []  # store val acc
 
-    # store the top 5 acc best metrics
-    top_5_metrics = []
 
     best_metrics = {}
 
@@ -356,7 +354,7 @@ def main(config):
 
     print('the train epoch loss list length is :{}'.format(len(train_epoch_loss_list)))
 
-    return best_metrics, top_5_metrics
+    return best_metrics
 
 
 if __name__ == '__main__':
@@ -378,7 +376,7 @@ if __name__ == '__main__':
 
         # main(config)
         try:
-            best_metrics, top_5_metrics = main(config)
+            best_metrics = main(config)
         except RuntimeError as exception:
             if "memory" in str(exception):
                 print("WARNING: out of memory")
@@ -394,12 +392,6 @@ if __name__ == '__main__':
         k_fold_auroc_list.append(best_metrics['AUROC'])
         k_fold_auprc_list.append((best_metrics['AUPRC']))
 
-        # file = open(os.path.join(config['output_dir'], 'metrics_result.txt'), 'w')
-        # for item in top_5_metrics:
-        #     item = json.dumps(item)
-        #     file.write(item)
-        #     file.write('\n')
-        # file.close()
 
         best_results.append(best_metrics)
 
